@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent  {
+        label 'AGENT1'
+    }
     environment { 
         appVersion = ''
         REGION = "us-east-1"
@@ -38,18 +40,6 @@ pipeline {
                    sh """
                         npm install
                    """
-                }
-            }
-        }
-        stage('Sonar Scan') {
-             environment {
-                scannerHome = tool 'sonar-7.2'
-            }
-            steps {
-                script{
-                    // Sonar Server envrionment
-                    withSonarQubeEnv(installationName: 'sonar-7.2')
-                        sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
