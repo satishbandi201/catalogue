@@ -43,7 +43,7 @@ pipeline {
                 }
             }
         }
-        stage('Sonar Scan') {
+        /* stage('Sonar Scan') {
             steps {
                 script {
                 def scannerHome = tool 'sonar-7.2'
@@ -52,8 +52,8 @@ pipeline {
                     }
                 }
             }
-        }
-        /* stage('Sonar Scan') {
+        } */
+        stage('Sonar Scan') {
              environment {
                 scannerHome = tool 'sonar-7.2'
             }
@@ -64,7 +64,7 @@ pipeline {
                         sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
-        } */
+        } 
         stage('Docker Build') {
             steps {
                 script {
