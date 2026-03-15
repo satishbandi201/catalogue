@@ -4,4 +4,4 @@ def configMap = [
     greeting : "Hello Jenkins"
 ]
 
-SamplePipeline(configMap)
+samplePipeline(configMap)
